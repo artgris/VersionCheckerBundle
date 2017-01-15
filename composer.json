@@ -1,0 +1,35 @@
+{
+  "name": "artgris/version-checker",
+  "type": "symfony-bundle",
+  "description": "Symfony Bundle to get list of installed packages in your project with a comparative of your and github (last release) versions. Accessible via Symfony Web Debug Toolbar, service and twig extension.",
+  "keywords": [
+    "symfony",
+    "bundle",
+    "package",
+    "version",
+    "composer",
+    "github",
+    "web debug toolbar"
+  ],
+  "homepage": "https://github.com/artgris/VersionCheckerBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Arthur Gribet",
+      "email": "a.gribet@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "symfony/framework-bundle": "^2.8 || ^3.0",
+    "twig/twig": "^1.3",
+    "twig/extensions": "^1.4",
+    "t4web/composer-lock-parser": "1.0.*"
+  },
+  "autoload": {
+    "psr-0": {
+      "Artgris\\VersionCheckerBundle": ""
+    }
+  },
+  "target-dir": "Artgris/VersionCheckerBundle"
+}

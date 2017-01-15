@@ -1,0 +1,21 @@
+services:
+    version_checker_service:
+        class: Artgris\VersionCheckerBundle\Service\VersionCheckerService
+        arguments: ['@kernel', '%artgris_version_checker%']
+
+    version_checker.twig_extension:
+        class: Artgris\VersionCheckerBundle\Twig\VersionCheckerExtension
+        arguments: ['@version_checker_service']
+        tags:
+              - { name: twig.extension }
+
+    app.request_collector:
+        class: Artgris\VersionCheckerBundle\DataCollector\VersionCollector
+        public: false
+        arguments: ['@version_checker_service']
+        tags:
+            -
+               name:     data_collector
+               template: '@ArtgrisVersionChecker/data_collector/template.html.twig'
+               id:       'app.version_collector'
+        public: false

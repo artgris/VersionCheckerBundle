@@ -1,0 +1,3 @@
+artgris_checker_bundle:
+    resource: "@ArtgrisVersionCheckerBundle/Controller/"
+    type:     annotation

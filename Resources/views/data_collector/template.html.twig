@@ -1,0 +1,73 @@
+{% extends 'WebProfilerBundle:Profiler:layout.html.twig' %}
+
+{% block toolbar %}
+    {% set icon %}
+	{{ include('@ArtgrisVersionChecker/data_collector/_icon.svg.html.twig') }}
+        <span class="sf-toolbar-value">versions</span>
+    {% endset %}
+
+    {% set text %}
+
+        <div id="artgris-toolbar">
+            <span style="width: 50px; height: 50px">
+             {{ include('@ArtgrisVersionChecker/data_collector/_octocat.svg.html.twig') }}
+            </span>
+            <br><br>
+            <strong>Loading ...</strong>
+        </div>
+
+    {% endset %}
+
+    {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: false }) }}
+
+    <script>
+        (function () {
+            var getHttpRequest = function () {
+                var httpRequest = false;
+
+                if (window.XMLHttpRequest) {
+                    httpRequest = new XMLHttpRequest();
+                    if (httpRequest.overrideMimeType) {
+                        httpRequest.overrideMimeType('text/xml');
+                    }
+                }
+                else if (window.ActiveXObject) {
+                    try {
+                        httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+                    }
+                    catch (e) {
+                        try {
+                            httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                        }
+                        catch (e) {
+                        }
+                    }
+                }
+
+                if (!httpRequest) {
+                    return false;
+                }
+
+                return httpRequest
+            }
+
+            var xhr = getHttpRequest()
+            xhr.open('GET', '{{ path('artgris_vcb_ajax') }}', true)
+            xhr.setRequestHeader('X-Requested-With', 'xmlhttprequest')
+            xhr.send()
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    var artgrisToolBar = document.getElementById("artgris-toolbar")
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText)
+                        artgrisToolBar.innerHTML = response.versions;
+                    } else {
+                        artgrisToolBar.innerHTML = "Error " + xhr.status;
+                    }
+                }
+            }
+
+        }())
+    </script>
+
+{% endblock %}
