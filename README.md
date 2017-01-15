@@ -55,17 +55,17 @@ artgris_version_checker:
     access_token: xxxxx...
     lifetime: 3600
 ``` 
-`access_token` : optional but **necessary if you have more than 60 packages** -  It's your token to use github API without rate limit =>  [Generate your token](https://github.com/settings/tokens/new) _(required GitHub user account)_
+`access_token` : optional but **necessary if you have more than 60 packages** -  It's your token to use GitHub API without rate limit =>  [Generate your token](https://github.com/settings/tokens/new) _(required GitHub user account)_
 
-`lifetime` : Cache lifetime (seconds), Github Versions have been saved with `The Cache Component`.  
+`lifetime` : Cache lifetime (seconds), GitHub Versions have been saved with `The Cache Component`.  
 
           
-####Github Api rate limit
+####GitHub Api rate limit
 
 
 VersionCheckerBundle uses GitHub API v3 to get last releases of your packages. 
 
-But Github has Rate Limiting policy :
+But GitHub has Rate Limiting policy :
 
     For requests using Basic Authentication or OAuth, you can make up to 5,000 requests per hour. 
     For unauthenticated requests, the rate limit allows you to make up to 60 requests per hour.
