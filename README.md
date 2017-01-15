@@ -6,6 +6,12 @@ Symfony Bundle to get list of installed packages in your project with a comparat
 
 *Versions available in Symfony Web Debug Toolbar*
 
+Requirements
+------------
+
+`module php_curl`
+
+
 Installation
 ------------
 
