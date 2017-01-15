@@ -9,7 +9,8 @@
     "version",
     "composer",
     "github",
-    "web debug toolbar"
+    "debug",
+    "toolbar"
   ],
   "homepage": "https://github.com/artgris/VersionCheckerBundle",
   "license": "MIT",
