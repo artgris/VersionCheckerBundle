@@ -1,5 +1,5 @@
 {
-  "name": "artgris/version-checker",
+  "name": "artgris/version-checker-bundle",
   "type": "symfony-bundle",
   "description": "Symfony Bundle to get list of installed packages in your project with a comparative of your and github (last release) versions. Accessible via Symfony Web Debug Toolbar, service and twig extension.",
   "keywords": [

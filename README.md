@@ -17,7 +17,7 @@ Installation
 
 ### 1) Download 
 
-`composer require artgris/version-checker`
+`composer require artgris/version-checker-bundle`
 
 ### 2) Enable Bundle
 
@@ -39,7 +39,6 @@ to `app/config/routing_dev.yml`
           resource: "@ArtgrisVersionCheckerBundle/Resources/config/routing.yml"
 
 
-
 to `app/config/services.yml`
     
     services:
@@ -59,9 +58,6 @@ artgris_version_checker:
 `access_token` : optional but **necessary if you have more than 60 packages** -  It's your token to use github API without rate limit =>  [Generate your token](https://github.com/settings/tokens/new) _(required GitHub user account)_
 
 `lifetime` : Cache lifetime (seconds), Github Versions have been saved with `The Cache Component`.  
-
-
-
 
           
 ####Github Api rate limit
@@ -115,7 +111,7 @@ or get a unique package version :
     $this->get('version_checker_service')->versionChecker('doctrine/dbal')
     
  
-####Twig extension :
+####Twig extension
 
 same logic :
 
