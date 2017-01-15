@@ -71,7 +71,8 @@ VersionCheckerBundle uses GitHub API v3 to get last releases of your packages.
 
 But Github has Rate Limiting policy :
 
-    For requests using Basic Authentication or OAuth, you can make up to 5,000 requests per hour. For unauthenticated requests, the rate limit allows you to make up to 60 requests per hour.
+    For requests using Basic Authentication or OAuth, you can make up to 5,000 requests per hour. 
+    For unauthenticated requests, the rate limit allows you to make up to 60 requests per hour.
 
 That's why it's necessary to use a token when you have more than 60 packages.
 
