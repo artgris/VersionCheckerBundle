@@ -6,21 +6,6 @@ Symfony Bundle to get list of installed packages in your project with a comparat
 
 *Versions available in Symfony Web Debug Toolbar*
 
-Requirements
-------------
-
-Enable the Twig Text Extension : 
-
-    // app/config/services.yml
-    
-    services:
-        twig.extension.text:
-            class: Twig_Extensions_Extension_Text
-            tags:
-                - { name: twig.extension }
-
-
-
 Installation
 ------------
 
@@ -39,7 +24,24 @@ Installation
 
 ### 3) Configure the Bundle 
 
+
 Adds following configurations 
+
+to `app/config/routing_dev.yml`
+
+     _artgris_version_checker:
+          resource: "@ArtgrisVersionCheckerBundle/Resources/config/routing.yml"
+
+
+
+to `app/config/services.yml`
+    
+    services:
+        twig.extension.text:
+            class: Twig_Extensions_Extension_Text
+            tags:
+                - { name: twig.extension }
+
 
 to ` app/config/config.yml` (optional) :
 
@@ -54,10 +56,7 @@ artgris_version_checker:
 
 
 
-to `app/config/routing_dev.yml`
 
-     _artgris_version_checker:
-          resource: "@ArtgrisVersionCheckerBundle/Resources/config/routing.yml"
           
 ####Github Api rate limit
 
