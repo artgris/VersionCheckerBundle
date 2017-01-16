@@ -3,9 +3,6 @@
 
 namespace Artgris\VersionCheckerBundle\Service;
 
-
-use ComposerLockParser\ComposerInfo;
-use ComposerLockParser\Package;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\HttpKernel\KernelInterface;
 
@@ -42,18 +39,17 @@ class VersionCheckerService
     public function versionChecker($gitHubName = null)
     {
         // Parse composer.lock
-        $composerInfo = new ComposerInfo($this->kernel->getRootDir() . '/../composer.lock');
-        $composerInfo->parse();
-        $packages = $composerInfo->getPackages();
 
+	    $composerInfo = file_get_contents($this->kernel->getRootDir() . '/../composer.lock');
+	    $comp =  json_decode($composerInfo);
+        $packages = $comp->packages;
         $packagesList = [];
         foreach ($packages as $package) {
-            /** @var Package $package */
-            preg_match_all("/https:\/\/github.com\/(.*).git/", $package->getSource()['url'], $matches);
+            preg_match_all("/https:\/\/github.com\/(.*).git/", $package->source->url, $matches);
             $gitHubNameTmp = $matches[1][0];
             $packagesList[$gitHubNameTmp] = [
-                'yourVersion' => $package->getVersion(),
-                'url' => $package->getSource()['url']
+                'yourVersion' => $package->version,
+                'url' => $package->source->url
             ];
         }
         if ($gitHubName) {
