@@ -41,14 +41,6 @@ to `app/config/routing_dev.yml`
           
 You don't have to have routing restriction on '/artgris-vcb-ajax' 
 
-to `app/config/services.yml`
-    
-    services:
-        twig.extension.text:
-            class: Twig_Extensions_Extension_Text
-            tags:
-                - { name: twig.extension }
-
 
 to ` app/config/config.yml` (optional) :
 

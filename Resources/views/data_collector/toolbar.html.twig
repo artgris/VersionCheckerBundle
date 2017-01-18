@@ -10,10 +10,10 @@
         <tbody class="sf-toolbar-ajax-request-list">
         {% for key, package in versions %}
             <tr class="sf-ajax-request sf-ajax-request-ok">
-                <td><a target="_blank" href="{{ package.url }}">{{ key|truncate(35) }}</a></td>
+                <td><a target="_blank" href="{{ package.url }}">{{ key }}</a></td>
                 <td>
                     <span class="sf-toolbar-status sf-toolbar-status-{{ package.gitHubVersion == "No release found" ? 'yellow' : 'green' }}">
-                      {{ package.gitHubVersion|truncate(16) }}
+                      {{ package.gitHubVersion[:16] }}
                     </span>
                 </td>
                 <td>
