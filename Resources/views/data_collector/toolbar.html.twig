@@ -1,19 +1,28 @@
-<div class="sf-toolbar-info-piece ">
-    <b>Package name</b>
-    <span class="sf-toolbar-status">GitHub release</span>
-    <span class="sf-toolbar-status">Your version</span>
-    <hr>
+<div class="sf-toolbar-info-piece">
+    <table class="sf-toolbar-ajax-requests">
+        <thead>
+        <tr>
+            <th>Package name</th>
+            <th>GitHub release</th>
+            <th>Your version</th>
+        </tr>
+        </thead>
+        <tbody class="sf-toolbar-ajax-request-list">
+        {% for key, package in versions %}
+            <tr class="sf-ajax-request sf-ajax-request-ok">
+                <td><a target="_blank" href="{{ package.url }}">{{ key|truncate(35) }}</a></td>
+                <td>
+                    <span class="sf-toolbar-status sf-toolbar-status-{{ package.gitHubVersion == "No release found" ? 'yellow' : 'green' }}">
+                      {{ package.gitHubVersion|truncate(16) }}
+                    </span>
+                </td>
+                <td>
+                    <span class="sf-toolbar-status sf-toolbar-status-{{ package.gitHubVersion != package.yourVersion ? (package.gitHubVersion == "No release found" ? 'yellow' : 'red') :  'green' }}">
+                        {{ package.yourVersion }}
+                    </span>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
-
-{% for key, package in versions %}
-
-    <div class="sf-toolbar-info-piece">
-        <b><a target="_blank" href="{{ package.url }}">{{ key|truncate(35) }}</a></b>
-        <span class="sf-toolbar-status sf-toolbar-status-{{ package.gitHubVersion == "No release found" ? 'yellow' : 'green' }}">
-            {{ package.gitHubVersion|truncate(16) }}
-        </span>
-        <span class="sf-toolbar-status sf-toolbar-status-{{ package.gitHubVersion != package.yourVersion ? (package.gitHubVersion == "No release found" ? 'yellow' : 'red') :  'green' }}">
-            {{ package.yourVersion }}
-        </span>
-    </div>
-{% endfor %}
