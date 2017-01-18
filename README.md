@@ -38,7 +38,8 @@ to `app/config/routing_dev.yml`
 
      _artgris_version_checker:
           resource: "@ArtgrisVersionCheckerBundle/Resources/config/routing.yml"
-
+          
+You don't have to have routing restriction on '/artgris-vcb-ajax' 
 
 to `app/config/services.yml`
     
