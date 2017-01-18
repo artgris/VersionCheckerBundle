@@ -18,4 +18,3 @@ services:
                name:     data_collector
                template: '@ArtgrisVersionChecker/data_collector/template.html.twig'
                id:       'app.version_collector'
-        public: false
