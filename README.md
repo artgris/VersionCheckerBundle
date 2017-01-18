@@ -1,8 +1,9 @@
 # VersionCheckerBundle
-Symfony Bundle to get list of installed packages in your project with a comparative of your versions (Parse composer.lock) and github release (GitHub Api v3) versions. Accessible via Symfony Web Debug Toolbar (using Cache), service and twig extension.
+Symfony Bundle to get list of installed packages in your project with a comparative of your versions (Parse composer.lock) 
+and github versions (GitHub Api v3) . Accessible via Symfony Web Debug Toolbar (using Cache), service and twig extension.
 
 
-![Image of adding toolbar](http://github.artgris.me/images/versioncheckerbundle.png)
+![Image of adding toolbar](http://github.artgris.me/images/versioncheckerbundle.png?v=2)
 
 *Versions available in Symfony Web Debug Toolbar*
 
