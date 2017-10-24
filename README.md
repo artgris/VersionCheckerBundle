@@ -70,11 +70,11 @@ That's why it's necessary to use a token when you have more than 60 packages.
 Usage
 =====
 
-####Symfony Web Debug Toolbar
+#### Symfony Web Debug Toolbar
  
  (screenshot above)
 
-####Service
+#### Service
 
     $this->get('version_checker_service')->versionChecker($gitHubName = null)
     
@@ -105,7 +105,7 @@ or get a unique package version :
     $this->get('version_checker_service')->versionChecker('doctrine/dbal')
     
  
-####Twig extension
+#### Twig extension
 
 same logic :
 
@@ -113,6 +113,6 @@ same logic :
     
     version_checker(packageName)
 
-####No release found
+#### No release found
 
 If you have message `No release found` for a package, it's because he doesn't have any **published full release**.
